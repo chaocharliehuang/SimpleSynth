@@ -1,13 +1,99 @@
 /********** GENERAL **********/
 
+body {
+    font-family: Tahoma, sans-serif;
+    background-color: lightcoral;
+}
+
 .wrapper {
-    background-color: gray;
-    width: 70%;
+    background-color: lightcoral;
+    padding: 20px;
+    /*width: 60%;*/
     margin: 40px auto;
 }
 
-/********** GENERAL **********/
-/********** GENERAL **********/
+h1 {
+    text-align: center;
+}
+
+/********** KEYS **********/
+
+.keys {
+    width: 100%;
+    margin: auto;
+}
+
+button {
+    width: 6%;
+    height: 100px;
+    border: 0;
+    border-radius: 5px;
+}
+
+.black-keys {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 4px;
+}
+
+#C4s {
+    margin-left: 4%;
+}
+
+#F4s {
+    margin-left: 6%;
+}
+
+#C5s {
+    margin-left: 8%;
+}
+
+#F5s {
+    margin-left: 7%;
+}
+
+.white-keys {
+    display: flex;
+    justify-content: space-between;
+}
+
+.black-keys button {
+    background-color: lightskyblue;
+}
+
+.white-keys button {
+    background-color: lightgoldenrodyellow;
+}
+
+/********** MEDIA QUERIES **********/
+
+@media all and (max-width: 480px) {
+    .wrapper {
+        width: 460px;
+        font-size: 70%
+    }
+}
+
+@media all and (min-width: 481px) {
+    .wrapper {
+        width: 90%;
+        font-size: 70%;
+    }
+}
+
+@media all and (min-width: 750px) {
+    .wrapper {
+        width: 90%;
+        font-size: 85%;
+    }
+}
+
+@media all and (min-width: 1024px) {
+    .wrapper {
+        width: 1024px;
+        font-size: 100%;
+    }
+}
 /********** GENERAL **********/
 /********** GENERAL **********/
 /********** GENERAL **********/
