@@ -8,12 +8,12 @@ body {
 .wrapper {
     background-color: lightcoral;
     padding: 20px;
-    /*width: 60%;*/
     margin: 40px auto;
 }
 
 h1 {
     text-align: center;
+    margin: 0;
 }
 
 /********** KEYS **********/
@@ -33,7 +33,7 @@ button {
 .black-keys {
     display: inline-block;
     width: 100%;
-    margin-bottom: 4px;
+    margin: 40px 0 4px;
 }
 
 #C4s {
@@ -63,6 +63,14 @@ button {
 
 .white-keys button {
     background-color: lightgoldenrodyellow;
+}
+
+/********** FOOTER **********/
+
+.footer {
+    text-align: center;
+    font-size: 70%;
+    margin-top: 40px;
 }
 
 /********** MEDIA QUERIES **********/
