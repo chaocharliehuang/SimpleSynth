@@ -98,7 +98,7 @@ button {
 
 @media all and (min-width: 1024px) {
     .wrapper {
-        width: 1024px;
+        width: 960px;
         font-size: 100%;
     }
 }
