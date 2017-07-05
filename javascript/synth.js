@@ -4,27 +4,45 @@ var masterVolume = context.createGain();
 masterVolume.gain.value = 0.3;
 masterVolume.connect(context.destination);
 
-$(document).keydown(function(e) {
+/*$(document).keydown(function(e) {
     var osc = context.createOscillator();
     osc.type = 'sawtooth';
     osc.connect(masterVolume);
     masterVolume.connect(context.destination);
 
-    freq = keyCodeToInfo(e.keyCode)[0];
-    changeBtnColor(e.keyCode, 'lightskyblue');
+    var keyCode = e.keyCode;
+    freq = keyCodeToInfo(keyCode)[0];
     osc.frequency.value = freq;
 
-    console.log(e.repeat);
-
-    if (e.repeat === undefined || e.repeat === false) {
-        osc.start(context.currentTime);
-    }
+    osc.start(context.currentTime);
+    changeBtnColor(keyCode, 'lightskyblue');
 
     $(document).keyup(function() {
         osc.stop(context.currentTime);
-        changeBtnColor(e.keyCode, 'lightgoldenrodyellow');
+        changeBtnColor(keyCode, 'lightgoldenrodyellow');
     });
-});
+});*/
+
+document.onkeydown = function(e) {
+    var osc = context.createOscillator();
+    osc.type = 'sawtooth';
+    osc.connect(masterVolume);
+    masterVolume.connect(context.destination);
+
+    var keyCode = e.keyCode;
+    freq = keyCodeToInfo(keyCode)[0];
+    osc.frequency.value = freq;
+
+    if (!e.repeat) {
+        osc.start(context.currentTime);
+        changeBtnColor(keyCode, 'lightskyblue');
+        $(document).keyup(function(e) {
+            osc.stop(context.currentTime);
+            changeBtnColor(e.keyCode, 'lightgoldenrodyellow');
+        });
+    }
+};
+
 
 function changeBtnColor(keyCode, color) {
     btnID = '#' + keyCodeToInfo(keyCode)[1];
