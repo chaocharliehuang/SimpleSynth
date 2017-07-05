@@ -11,7 +11,7 @@ $(document).keydown(function(e) {
     masterVolume.connect(context.destination);
 
     freq = keyCodeToInfo(e.keyCode)[0];
-    changeBtnColor(e.keyCode);
+    changeBtnColor(e.keyCode, 'lightskyblue');
     osc.frequency.value = freq;
 
     console.log(e.repeat);
@@ -22,12 +22,13 @@ $(document).keydown(function(e) {
 
     $(document).keyup(function() {
         osc.stop(context.currentTime);
+        changeBtnColor(e.keyCode, 'lightgoldenrodyellow');
     });
 });
 
-function changeBtnColor(keyCode) {
+function changeBtnColor(keyCode, color) {
     btnID = '#' + keyCodeToInfo(keyCode)[1];
-    $(btnID).css('background-color', 'grey');
+    $(btnID).css('background-color', color);
 }
 
 function keyCodeToInfo(keyCode) {
