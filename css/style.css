@@ -13,18 +13,22 @@ body {
 
 h1 {
     text-align: center;
-    margin: 0;
+    margin: 0 0 10px;
+}
+
+h3 {
+    margin: 18px 0;
+}
+
+h5 {
+    margin: 0 0 5px;
 }
 
 /********** CONTROLS **********/
 
 .controls {
     display: flex;
-    justify-content: flex-start;
-}
-
-.ctrl_module {
-    padding-right: 40px;
+    justify-content: space-between;
 }
 
 .ctrl_gain {
@@ -40,10 +44,39 @@ h1 {
     margin-left: 5px;
 }
 
+.sm_vert_slider {
+    -webkit-appearance: slider-vertical;
+    width: 20px;
+    height: 4em;
+}
+
+.vert_slider {
+    display: inline-block;
+    margin-right: 10px;
+    text-align: center;
+}
+
+/********** GAIN **********/
+
 #ctrl_gain input {
     -webkit-appearance: slider-vertical;
     width: 20px;
-    height: 85px;
+    height: 5.25em;
+}
+
+/********** FILTER **********/
+
+.ctrl_filter h3 {
+    margin: 18px 0 13px;
+}
+
+/********** ADSR **********/
+
+
+/********** LFO **********/
+
+#lfo_rate {
+    margin: 0;
 }
 
 /********** KEYS **********/
@@ -64,7 +97,7 @@ h1 {
 .black-keys {
     display: inline-block;
     width: 100%;
-    margin: 40px 0 4px;
+    margin: 20px 0 4px;
 }
 
 #C4s {
