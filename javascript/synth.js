@@ -1,14 +1,18 @@
 var context = new AudioContext();
 
 var masterVolume = context.createGain();
-masterVolume.gain.value = 0.3;
+masterVolume.gain.value = 0.2;
 masterVolume.connect(context.destination);
 
-var oscType;
+var oscType = 'sine';
+var detune = 0;
+
+$('.ctrl_vol input').keydown(function() {
+    masterVolume.gain.value = $(this).val()/100;
+});
 
 $('.ctrl_osc input').on('click', function() {
     oscType = $('input:checked').val();
-    console.log(oscType);
 });
 
 document.onkeydown = function(e) {

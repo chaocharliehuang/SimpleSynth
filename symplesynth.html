@@ -13,11 +13,18 @@
 
             <div class="controls">
 
-                <div class="ctrl_osc">
-                    <h3>OSC Type</h3>
+                <div class="ctrl_vol ctrl_module">
+                    <h3>Volume</h3>
+                    <form id="ctrl_vol">
+                        <input type="range" min="0" max="30" value="20">
+                    </form>
+                </div>
+
+                <div class="ctrl_osc ctrl_module">
+                    <h3>Oscillator</h3>
                     <form id="ctrl_osc">
                         <div class="radio">
-                            <input type="radio" name="osc_type" value="sine" id="sine">
+                            <input type="radio" name="osc_type" value="sine" id="sine" checked>
                             <label for="sine">Sine</label>
                         </div>
                         <div class="radio">

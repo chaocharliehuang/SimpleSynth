@@ -18,8 +18,17 @@ h1 {
 
 /********** CONTROLS **********/
 
-.ctrl_osc {
-    width: 15%;
+.controls {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ctrl_module {
+    padding-right: 40px;
+}
+
+.ctrl_vol {
+    text-align: center;
 }
 
 .radio {
@@ -29,6 +38,12 @@ h1 {
 
 .radio label {
     margin-left: 5px;
+}
+
+#ctrl_vol input {
+    -webkit-appearance: slider-vertical;
+    width: 20px;
+    height: 80px;
 }
 
 /********** KEYS **********/
