@@ -13,12 +13,34 @@
 
             <div class="controls">
 
-                <div class="ctrl_vol ctrl_module">
-                    <h3>Volume</h3>
-                    <form id="ctrl_vol">
+                <div class="ctrl_gain ctrl_module">
+                    <h3>Gain</h3>
+                    <form id="ctrl_gain">
                         <input type="range" min="0" max="30" value="20">
                     </form>
-                </div>
+                </div> <!-- end ctrl-vol div -->
+
+                <div class="ctrl_octave ctrl_module">
+                    <h3>Octave</h3>
+                    <form id="ctrl_octave">
+                        <div class="radio">
+                            <input type="radio" name="octave" value="c2c4" id="c2c4">
+                            <label for="c2c4">C2 - C4</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="octave" value="c3c5" id="c3c5">
+                            <label for="c3c5">C3 - C5</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="octave" value="c4c6" id="c4c6" checked>
+                            <label for="c4c6">C4 - C6</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="octave" value="c5c7" id="c5c7">
+                            <label for="c5c7">C5 - C7</label>
+                        </div>
+                    </form>
+                </div> <!-- end ctrl-octave div -->
 
                 <div class="ctrl_osc ctrl_module">
                     <h3>Oscillator</h3>

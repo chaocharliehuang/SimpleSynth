@@ -7,12 +7,25 @@ masterVolume.connect(context.destination);
 var oscType = 'sine';
 var detune = 0;
 
-$('.ctrl_vol input').keydown(function() {
+$('#ctrl_gain input').keydown(function() {
     masterVolume.gain.value = $(this).val()/100;
 });
 
-$('.ctrl_osc input').on('click', function() {
-    oscType = $('input:checked').val();
+$('#ctrl_octave input').on('click', function() {
+    var octave = $('#ctrl_octave input:checked').val();
+    if (octave === 'c2c4') {
+        detune = -2400;
+    } else if (octave === 'c3c5') {
+        detune = -1200;
+    } else if (octave === 'c4c6') {
+        detune = 0;
+    } else if (octave === 'c5c7') {
+        detune = 1200;
+    }
+});
+
+$('#ctrl_osc input').on('click', function() {
+    oscType = $('#ctrl_osc input:checked').val();
 });
 
 document.onkeydown = function(e) {
@@ -24,6 +37,7 @@ document.onkeydown = function(e) {
     var keyCode = e.keyCode;
     freq = keyCodeToInfo(keyCode)[0];
     osc.frequency.value = freq;
+    osc.detune.value = detune;
 
     if (!e.repeat) {
         osc.start(context.currentTime);

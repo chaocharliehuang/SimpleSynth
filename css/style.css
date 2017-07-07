@@ -27,7 +27,7 @@ h1 {
     padding-right: 40px;
 }
 
-.ctrl_vol {
+.ctrl_gain {
     text-align: center;
 }
 
@@ -40,10 +40,10 @@ h1 {
     margin-left: 5px;
 }
 
-#ctrl_vol input {
+#ctrl_gain input {
     -webkit-appearance: slider-vertical;
     width: 20px;
-    height: 80px;
+    height: 85px;
 }
 
 /********** KEYS **********/
