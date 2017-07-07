@@ -11,6 +11,32 @@
         <div class="wrapper">
             <h1>Symple Synth</h1>
 
+            <div class="controls">
+
+                <div class="ctrl_osc">
+                    <h3>OSC Type</h3>
+                    <form id="ctrl_osc">
+                        <div class="radio">
+                            <input type="radio" name="osc_type" value="sine" id="sine">
+                            <label for="sine">Sine</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="osc_type" value="square" id="square">
+                            <label for="square">Square</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="osc_type" value="sawtooth" id="sawtooth">
+                            <label for="sawtooth">Sawtooth</label>
+                        </div>
+                        <div class="radio">
+                            <input type="radio" name="osc_type" value="triangle" id="triangle">
+                            <label for="triangle">Triangle</label>
+                        </div>
+                    </form>
+                </div> <!-- end ctrl-osc div -->
+
+            </div> <!-- end controls div -->
+
             <div class="keys">
                 <div class="black-keys">
                     <button type="button" id="C4s">S</button> <!-- keyCode 83-->

@@ -16,6 +16,21 @@ h1 {
     margin: 0;
 }
 
+/********** CONTROLS **********/
+
+.ctrl_osc {
+    width: 15%;
+}
+
+.radio {
+    display: flex;
+    margin: 5px 0;
+}
+
+.radio label {
+    margin-left: 5px;
+}
+
 /********** KEYS **********/
 
 .keys {

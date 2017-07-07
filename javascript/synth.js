@@ -4,28 +4,16 @@ var masterVolume = context.createGain();
 masterVolume.gain.value = 0.3;
 masterVolume.connect(context.destination);
 
-/*$(document).keydown(function(e) {
-    var osc = context.createOscillator();
-    osc.type = 'sawtooth';
-    osc.connect(masterVolume);
-    masterVolume.connect(context.destination);
+var oscType;
 
-    var keyCode = e.keyCode;
-    freq = keyCodeToInfo(keyCode)[0];
-    osc.frequency.value = freq;
-
-    osc.start(context.currentTime);
-    changeBtnColor(keyCode, 'lightskyblue');
-
-    $(document).keyup(function() {
-        osc.stop(context.currentTime);
-        changeBtnColor(keyCode, 'lightgoldenrodyellow');
-    });
-});*/
+$('.ctrl_osc input').on('click', function() {
+    oscType = $('input:checked').val();
+    console.log(oscType);
+});
 
 document.onkeydown = function(e) {
     var osc = context.createOscillator();
-    osc.type = 'sawtooth';
+    osc.type = oscType;
     osc.connect(masterVolume);
     masterVolume.connect(context.destination);
 
@@ -35,6 +23,7 @@ document.onkeydown = function(e) {
 
     if (!e.repeat) {
         osc.start(context.currentTime);
+        
         changeBtnColor(keyCode, 'lightskyblue');
         $(document).keyup(function(e) {
             osc.stop(context.currentTime);
