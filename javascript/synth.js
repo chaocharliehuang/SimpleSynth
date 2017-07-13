@@ -9,7 +9,8 @@ var oscType = 'sine';
 
 var filter = context.createBiquadFilter();
 filter.type = "lowpass";
-// filter.frequency.value = 
+filter.frequency.value = 250;
+filter.Q.value = 1;
 
 $('.ctrl_gain input').keydown(function() {
     masterVolume.gain.value = $(this).val()/100;
