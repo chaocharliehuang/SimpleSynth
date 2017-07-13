@@ -13,16 +13,17 @@
 
             <div class="controls">
 
-                <div class="ctrl_gain ctrl_module">
-                    <h3>Gain</h3>
-                    <form id="ctrl_gain">
-                        <input type="range" min="0" max="30" value="20" orient="vertical">
-                    </form>
-                </div> <!-- end ctrl-vol div -->
+                <form action="" method="post">
 
-                <div class="ctrl_octave ctrl_module">
-                    <h3>Octave</h3>
-                    <form id="ctrl_octave">
+                    <div class="ctrl_gain ctrl_module">
+                        <h3>Gain</h3>
+                        <!-- <form id="ctrl_gain"> -->
+                        <input type="range" min="0" max="30" value="20" orient="vertical">
+                        <!-- </form> -->
+                    </div> <!-- end ctrl-vol div -->
+
+                    <div class="ctrl_octave ctrl_module">
+                        <h3>Octave</h3>
                         <div class="radio">
                             <input type="radio" name="octave" value="c2c4" id="c2c4">
                             <label for="c2c4">C2 - C4</label>
@@ -39,12 +40,10 @@
                             <input type="radio" name="octave" value="c5c7" id="c5c7">
                             <label for="c5c7">C5 - C7</label>
                         </div>
-                    </form>
-                </div> <!-- end ctrl-octave div -->
+                    </div> <!-- end ctrl-octave div -->
 
-                <div class="ctrl_osc ctrl_module">
-                    <h3>Oscillator</h3>
-                    <form id="ctrl_osc">
+                    <div class="ctrl_osc ctrl_module">
+                        <h3>Oscillator</h3>
                         <div class="radio">
                             <input type="radio" name="osc_type" value="sine" id="sine" checked>
                             <label for="sine">Sine</label>
@@ -61,79 +60,80 @@
                             <input type="radio" name="osc_type" value="triangle" id="triangle">
                             <label for="triangle">Triangle</label>
                         </div>
-                    </form>
-                </div> <!-- end ctrl-osc div -->
+                    </div> <!-- end ctrl-osc div -->
 
-                <div class="ctrl_filter ctrl_module">
-                    <h3>Filter</h3>
-                    <div>
-                        <form id="filter_type" class="vert_slider">
-                            <div class="radio">
-                                <input type="radio" name="filter_type" value="lowpass" id="lowpass" checked>
-                                <label for="lowpass">Low-pass</label>
+                    <div class="ctrl_filter ctrl_module">
+                        <h3>Filter</h3>
+                        <div>
+                            <div id="filter_type" class="vert_slider">
+                                <div class="radio">
+                                    <input type="radio" name="filter_type" value="lowpass" id="lowpass" checked>
+                                    <label for="lowpass">Low-pass</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" name="filter_type" value="highpass" id="highpass">
+                                    <label for="highpass">High-pass</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" name="filter_type" value="bandpass" id="bandpass">
+                                    <label for="bandpass">Band-pass</label>
+                                </div>
+                                <div class="radio">
+                                    <input type="radio" name="filter_type" value="notch" id="notch">
+                                    <label for="notch">Notch</label>
+                                </div>
                             </div>
-                            <div class="radio">
-                                <input type="radio" name="filter_type" value="highpass" id="highpass">
-                                <label for="highpass">High-pass</label>
+
+                            <div id="filter_freq" class="vert_slider">
+                                <h5>Freq</h5>
+                                <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
                             </div>
-                            <div class="radio">
-                                <input type="radio" name="filter_type" value="bandpass" id="bandpass">
-                                <label for="bandpass">Band-pass</label>
+
+                            <div id="filter_Q" class="vert_slider">
+                                <h5>Q</h5>
+                                <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
                             </div>
-                            <div class="radio">
-                                <input type="radio" name="filter_type" value="notch" id="notch">
-                                <label for="notch">Notch</label>
+
+                        </div>
+                    </div> <!-- end ctrl-filter div -->
+
+                    <div class="ctrl_adsr ctrl_module">
+                        <h3>Envelope</h3>
+                        <div>
+                            <div id="adsr_attack" class="vert_slider">
+                                <h5>Attack</h5>
+                                <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
                             </div>
-                        </form>
+                            <div id="adsr_decay" class="vert_slider">
+                                <h5>Decay</h5>
+                                <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
+                            </div>
+                            <div id="adsr_sustain" class="vert_slider">
+                                <h5>Sustain</h5>
+                                <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
+                            </div>
+                            <div id="adsr_release" class="vert_slider">
+                                <h5>Release</h5>
+                                <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
+                            </div>
+                        </div>
+                    </div> <!-- end ctrl-adsr div -->
 
-                        <form id="filter_freq" class="vert_slider">
-                            <h5>Freq</h5>
-                            <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
-                        </form>
+                    <div class="ctrl_lfo ctrl_module">
+                        <h3>LFO</h3>
+                        <div>
+                            <div id="lfo_amount" class="vert_slider">
+                                <h5>Amount</h5>
+                                <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
+                            </div>
+                            <div id="lfo_rate" class="vert_slider">
+                                <h5>Rate</h5>
+                                <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
+                            </div>
+                        </div>
+                    </div> <!-- end ctrl-lfo div -->
 
-                        <form id="filter_Q" class="vert_slider">
-                            <h5>Q</h5>
-                            <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
-                        </form>
-
-                    </div>
-                </div> <!-- end ctrl-filter div -->
-
-                <div class="ctrl_adsr ctrl_module">
-                    <h3>Envelope</h3>
-                    <div>
-                        <form id="adsr_attack" class="vert_slider">
-                            <h5>Attack</h5>
-                            <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
-                        </form>
-                        <form id="adsr_decay" class="vert_slider">
-                            <h5>Decay</h5>
-                            <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
-                        </form>
-                        <form id="adsr_sustain" class="vert_slider">
-                            <h5>Sustain</h5>
-                            <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
-                        </form>
-                        <form id="adsr_release" class="vert_slider">
-                            <h5>Release</h5>
-                            <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
-                        </form>
-                    </div>
-                </div> <!-- end ctrl-adsr div -->
-
-                <div class="ctrl_lfo ctrl_module">
-                    <h3>LFO</h3>
-                    <div>
-                        <form id="lfo_amount" class="vert_slider">
-                            <h5>Amount</h5>
-                            <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
-                        </form>
-                        <form id="lfo_rate" class="vert_slider">
-                            <h5>Rate</h5>
-                            <input type="range" min="0" max="30" value="20" orient="vertical" class="sm_vert_slider">
-                        </form>
-                    </div>
-                </div> <!-- end ctrl-lfo div -->
+                </form>
 
             </div> <!-- end controls div -->
 

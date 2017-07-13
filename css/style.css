@@ -26,7 +26,7 @@ h5 {
 
 /********** CONTROLS **********/
 
-.controls {
+form {
     display: flex;
     justify-content: space-between;
 }
@@ -58,7 +58,7 @@ h5 {
 
 /********** GAIN **********/
 
-#ctrl_gain input {
+.ctrl_gain input {
     -webkit-appearance: slider-vertical;
     width: 20px;
     height: 5.25em;
