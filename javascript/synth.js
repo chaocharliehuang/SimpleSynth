@@ -7,12 +7,12 @@ masterVolume.connect(context.destination);
 var oscType = 'sine';
 var detune = 0;
 
-$('#ctrl_gain input').keydown(function() {
+$('.ctrl_gain input').keydown(function() {
     masterVolume.gain.value = $(this).val()/100;
 });
 
-$('#ctrl_octave input').on('click', function() {
-    var octave = $('#ctrl_octave input:checked').val();
+$('.ctrl_octave input').on('click', function() {
+    var octave = $('.ctrl_octave input:checked').val();
     if (octave === 'c2c4') {
         detune = -2400;
     } else if (octave === 'c3c5') {
@@ -24,8 +24,8 @@ $('#ctrl_octave input').on('click', function() {
     }
 });
 
-$('#ctrl_osc input').on('click', function() {
-    oscType = $('#ctrl_osc input:checked').val();
+$('.ctrl_osc input').on('click', function() {
+    oscType = $('.ctrl_osc input:checked').val();
 });
 
 document.onkeydown = function(e) {
