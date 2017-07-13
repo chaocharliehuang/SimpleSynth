@@ -4,8 +4,12 @@ var masterVolume = context.createGain();
 masterVolume.gain.value = 0.2;
 masterVolume.connect(context.destination);
 
-var oscType = 'sine';
 var detune = 0;
+var oscType = 'sine';
+
+var filter = context.createBiquadFilter();
+filter.type = "lowpass";
+// filter.frequency.value = 
 
 $('.ctrl_gain input').keydown(function() {
     masterVolume.gain.value = $(this).val()/100;
@@ -28,10 +32,24 @@ $('.ctrl_osc input').on('click', function() {
     oscType = $('.ctrl_osc input:checked').val();
 });
 
+$('.ctrl_filter .radio').on('click', function() {
+    filter.type = $('.ctrl_filter input:checked').val();
+});
+
+$('#filter_freq input').keydown(function() {
+    filter.frequency.value = $(this).val()*10;
+});
+
+$('#filter_Q input').keydown(function() {
+    filter.Q.value = $(this).val();
+});
+
+
 document.onkeydown = function(e) {
     var osc = context.createOscillator();
     osc.type = oscType;
-    osc.connect(masterVolume);
+    osc.connect(filter);
+    filter.connect(masterVolume);
     masterVolume.connect(context.destination);
 
     var keyCode = e.keyCode;
