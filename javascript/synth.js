@@ -2,7 +2,6 @@ var context = new AudioContext();
 
 var masterVolume = context.createGain();
 masterVolume.gain.value = 0.2;
-masterVolume.connect(context.destination);
 
 var detune = 0;
 var oscType = 'sine';
@@ -11,6 +10,15 @@ var filter = context.createBiquadFilter();
 filter.type = "lowpass";
 filter.frequency.value = 250;
 filter.Q.value = 1;
+
+var lfo = context.createOscillator();
+var lfo_gain = context.createGain();
+var lfo_amount = 0;
+var lfo_rate = 0;
+lfo.connect(lfo_gain);
+lfo_gain.connect(masterVolume.gain);
+lfo.start(context.currentTime);
+
 
 $('.ctrl_gain input').keydown(function() {
     masterVolume.gain.value = $(this).val()/100;
@@ -45,18 +53,28 @@ $('#filter_Q input').keydown(function() {
     filter.Q.value = $(this).val();
 });
 
+$('#lfo_amount input').keydown(function() {
+    lfo_amount = $(this).val()/1000;
+});
+
+$('#lfo_rate input').keydown(function() {
+    lfo_rate = $(this).val()/10;
+});
 
 document.onkeydown = function(e) {
     var osc = context.createOscillator();
-    osc.type = oscType;
     osc.connect(filter);
     filter.connect(masterVolume);
     masterVolume.connect(context.destination);
+
+    lfo.frequency.value = lfo_rate;
+    lfo_gain.gain.value = lfo_amount; 
 
     var keyCode = e.keyCode;
     freq = keyCodeToInfo(keyCode)[0];
     osc.frequency.value = freq;
     osc.detune.value = detune;
+    osc.type = oscType;
 
     if (!e.repeat) {
         osc.start(context.currentTime);
