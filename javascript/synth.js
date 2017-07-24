@@ -1,38 +1,48 @@
-// CREATE AUDIO CONTEXT AND MASTER VOLUME
+// CREATE AUDIO CONTEXT, MASTER VOLUME, FILTER, AND LFO
 var context = new AudioContext();
 var masterVolume = context.createGain();
-masterVolume.gain.value = 0.2;
-
-// SET INITIAL VALUES FOR ALL CONTROL PARAMETERS
-var detune = 0;
-var oscType = 'sine';
-
 var filter = context.createBiquadFilter();
-filter.type = "lowpass";
-filter.frequency.value = 250;
-filter.Q.value = 0;
-
-var attack = 0;
-var decay = 0;
-var sustain = 1;
-var release = 0;
-var envTimeFactor = 2;
-
 var lfo = context.createOscillator();
 var lfo_gain = context.createGain();
-var lfo_amount = 0;
-var lfo_rate = 0;
+
+// ********** SET INITIAL VALUES FOR ALL CONTROL PARAMETERS **********
+// GAIN
+masterVolume.gain.value = $('.ctrl_gain input').val()/300;
+
+// OCTAVE
+var octave = $('.ctrl_octave input:checked').val();
+var detune = 0;
+
+// OSCILLATOR
+var oscType = $('.ctrl_osc input:checked').val();
+
+// FILTER
+filter.type = $('.ctrl_filter input:checked').val();
+filter.frequency.value = $('#filter_freq input')*10;
+filter.Q.value = $('#filter_Q input')/10;
+
+// ADSR
+var attack = $('#adsr_attack input')/100;
+var decay = $('#adsr_decay input')/100;
+var sustain = $('#adsr_sustain input')/100;
+var release = $('#adsr_release input')/100;
+var envTimeFactor = 2;
+
+// LFO
+var lfo_amount = $('#lfo_amount input')/1000;
+var lfo_rate = $('#lfo_rate input')/10;
 lfo.connect(lfo_gain);
 lfo_gain.connect(masterVolume.gain);
 lfo.start(context.currentTime);
 
-// UPDATE VALUES FOR ALL CONTROL PARAMETERS
+// ********** UPDATE VALUES FOR ALL CONTROL PARAMETERS WHEN CHANGED **********
+// GAIN
 $('.ctrl_gain input').keydown(function() {
     masterVolume.gain.value = $(this).val()/300;
 });
 
+// OCTAVE
 $('.ctrl_octave input').on('click', function() {
-    var octave = $('.ctrl_octave input:checked').val();
     if (octave === 'c2c4') {
         detune = -2400;
     } else if (octave === 'c3c5') {
@@ -44,10 +54,12 @@ $('.ctrl_octave input').on('click', function() {
     }
 });
 
+// OSCILLATOR
 $('.ctrl_osc input').on('click', function() {
     oscType = $('.ctrl_osc input:checked').val();
 });
 
+// FILTER
 $('.ctrl_filter .radio').on('click', function() {
     filter.type = $('.ctrl_filter input:checked').val();
 });
@@ -60,6 +72,7 @@ $('#filter_Q input').keydown(function() {
     filter.Q.value = $(this).val()/10;
 });
 
+// ADSR
 $('#adsr_attack input').keydown(function() {
     attack = $(this).val()/100;
 });
@@ -76,6 +89,7 @@ $('#adsr_release input').keydown(function() {
     release = $(this).val()/100;
 });
 
+// LFO
 $('#lfo_amount input').keydown(function() {
     lfo_amount = $(this).val()/1000;
 });
@@ -84,7 +98,7 @@ $('#lfo_rate input').keydown(function() {
     lfo_rate = $(this).val()/10;
 });
 
-// START AND STOP OSCILLATORS ON KEYDOWN/KEYUP
+// ********** START AND STOP OSCILLATORS ON KEYDOWN/KEYUP **********
 document.onkeydown = function(e) {
     var osc = context.createOscillator();
     osc.connect(filter);
