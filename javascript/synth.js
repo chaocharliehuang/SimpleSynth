@@ -18,19 +18,19 @@ var oscType = $('.ctrl_osc input:checked').val();
 
 // FILTER
 filter.type = $('.ctrl_filter input:checked').val();
-filter.frequency.value = $('#filter_freq input')*10;
-filter.Q.value = $('#filter_Q input')/10;
+filter.frequency.value = $('#filter_freq input').val()*10;
+filter.Q.value = $('#filter_Q input').val()/10;
 
 // ADSR
-var attack = $('#adsr_attack input')/100;
-var decay = $('#adsr_decay input')/100;
-var sustain = $('#adsr_sustain input')/100;
-var release = $('#adsr_release input')/100;
+var attack = $('#adsr_attack input').val()/100;
+var decay = $('#adsr_decay input').val()/100;
+var sustain = $('#adsr_sustain input').val()/100;
+var release = $('#adsr_release input').val()/100;
 var envTimeFactor = 2;
 
 // LFO
-var lfo_amount = $('#lfo_amount input')/1000;
-var lfo_rate = $('#lfo_rate input')/10;
+var lfo_amount = $('#lfo_amount input').val()/1000;
+var lfo_rate = $('#lfo_rate input').val()/10;
 lfo.connect(lfo_gain);
 lfo_gain.connect(masterVolume.gain);
 lfo.start(context.currentTime);

@@ -134,7 +134,7 @@ form {
 @media all and (max-width: 480px) {
     .wrapper {
         width: 460px;
-        font-size: 70%
+        font-size: 70%;
     }
 }
 
