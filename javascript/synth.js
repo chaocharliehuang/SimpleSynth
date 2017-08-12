@@ -43,6 +43,7 @@ $('.ctrl_gain input').keydown(function() {
 
 // OCTAVE
 $('.ctrl_octave input').on('click', function() {
+    octave = $('.ctrl_octave input:checked').val();
     if (octave === 'c2c4') {
         detune = -2400;
     } else if (octave === 'c3c5') {
