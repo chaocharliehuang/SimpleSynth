@@ -7,7 +7,7 @@ var lfo_gain = context.createGain();
 
 // ********** SET INITIAL VALUES FOR ALL CONTROL PARAMETERS **********
 // GAIN
-masterVolume.gain.value = $('.ctrl_gain input').val()/300;
+// masterVolume.gain.value = $('.ctrl_gain input').val()/300;
 
 // OCTAVE
 var octave = $('.ctrl_octave input:checked').val();
@@ -106,6 +106,9 @@ document.onkeydown = function(e) {
     filter.connect(masterVolume);
     masterVolume.connect(context.destination);
 
+    
+    console.log(masterVolume.gain.value);
+
     lfo.frequency.value = lfo_rate;
     lfo_gain.gain.value = lfo_amount; 
 
@@ -116,6 +119,7 @@ document.onkeydown = function(e) {
     osc.type = oscType;
 
     if (!e.repeat) {
+        masterVolume.gain.value = $('.ctrl_gain input').val()/300;
         osc.start(context.currentTime);
         envGenOn(masterVolume.gain, attack, decay, sustain);
         changeBtnColor(keyCode, 'lightskyblue');
